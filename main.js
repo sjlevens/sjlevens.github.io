@@ -1,6 +1,7 @@
 import './style.css'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
+import samImg from './sam.jpg'
 
 const scene = new THREE.Scene()
 
@@ -49,7 +50,7 @@ function addStar(position) {
 
 Array(600).fill().forEach(addStar)
 
-const samTexture = new THREE.TextureLoader().load('sam.jpg')
+const samTexture = new THREE.TextureLoader().load(samImg)
 
 const sam = new THREE.Mesh(
   new THREE.BoxGeometry(3, 3, 3, 4),
