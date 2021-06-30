@@ -1,5 +1,9 @@
 @import url('https://use.typekit.net/jmk3xov.css');
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   width: 100vw;
   overflow-y: overlay;
