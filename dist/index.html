@@ -6,9 +6,9 @@
     <link rel="manifest" href="data:application/json;base64,ewogICJzaG9ydF9uYW1lIjogInNsZXZlbnMiLAogICJuYW1lIjogIlNhbSBMZXZlbnMsIFByb2ZpbGUiLAogICJpY29ucyI6IFsKICAgIHsKICAgICAgInNyYyI6ICJmYXZpY29uLmljbyIsCiAgICAgICJzaXplcyI6ICI2NHg2NCAzMngzMiAyNHgyNCAxNngxNiIsCiAgICAgICJ0eXBlIjogImltYWdlL3gtaWNvbiIKICAgIH0KICBdCn0K" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sam Levens - Dev</title>
-  <script type="module" crossorigin src="/assets/index.42d31436.js"></script>
+  <script type="module" crossorigin src="/assets/main.e6f38137.js"></script>
   <link rel="modulepreload" href="/assets/vendor.bc656768.js">
-  <link rel="stylesheet" href="/assets/index.df4ce1a2.css">
+  <link rel="stylesheet" href="/assets/main.c0a1a832.css">
 </head>
   <body>
     <canvas id="bg"></canvas>
@@ -18,15 +18,22 @@
         <p>Senior Front End / Full Stack Enthusiast</p>
       </header>
 
-      <blockquote>
-        <code>Modular, readable, functional-lite code</code>
-      </blockquote>
-
       <section>
+        <blockquote>
+          <code>Modular, readable, functional-lite code</code>
+        </blockquote>
+        <p style="font-size: x-large">
+          <a href="#intro">Intro</a> | <a href="#skills">Skills</a> | <a href="#cv">CV</a> |
+          <a href="#projects">Projects</a>
+        </p>
+      </section>
+      <section id="intro">
         <h2>Who, me? 👨🏼‍🚀</h2>
         <p>
-          <a href="/Resume-Samuel-Levens.pdf">please just give me your cv</a>
+          <a href="/SLEVENS_CV.pdf">CV</a> | <a href="https://github.com/sjlevens">GitHub</a> |
+          <a href="https://www.linkedin.com/in/samuel-levens-24b1a896/">LinkedIn</a>
         </p>
+        <h6><a href="https://sjlevens.github.io/"> If you want plain html click here </a></h6>
         <p>
           I love building scalable, living projects that evolve with exploration and a natural
           curiousity. Starting out, I picture a real person I know using the tools I am creating and
@@ -39,7 +46,7 @@
         </p>
       </section>
 
-      <section>
+      <section id="skills">
         <h2>⚡ 1337 Skillz 🚀</h2>
         <ul>
           <li>
@@ -51,16 +58,26 @@
             has been released, I only love it :D
           </li>
           <li><b>GraphQL </b> - I ship it ❤️‍🔥</li>
+          <ul>
+            <li>Apollo Client/Server</li>
+            <li>Relay</li>
+          </ul>
+          <li><b>Databases</b></li>
+          <ul>
+            <li>Postgres</li>
+            <li>Non-relational, MongoDB</li>
+          </ul>
           <li><b>Websockets </b> - Real time, all the time</li>
           <li><b>Typescript </b> - Type is love, type is life</li>
+          <li><b>Functional Programming</b> - 🥷🥷</li>
           <li><b> etc. </b> - CRA, Next.JS, Angular, NodeJS, Deno, Rust, Python</li>
         </ul>
         <p>If it isn't on this list, ask me about it.</p>
       </section>
 
-      <section>
+      <section id="cv">
         <h2>CV 📋</h2>
-        <a href="https://www.linkedin.com/company/gada-technology" target="_blank">
+        <a href="https://www.linkedin.com/company/gada-technology">
           <h3>GADA Technology / Internmatch</h3>
         </a>
         <h5>2020 -></h5>
@@ -69,10 +86,24 @@
           enterprise level projects quickly and efficiently. Mostly working with real time
           websockets for data layers.
         </p>
+
+        <h5>⭐⭐⭐ Achievements</h5>
+        <p>
+          I am very proud of implementing <code>a11y</code>, as we were dealing with students from
+          all kinds of backgrounds, accessibility and usability with screen readers/translation
+          software was very important for me.
+        </p>
+        <p>
+          This was also the first time I built an entire app from scratch and made all the
+          architectural decisions. I believe I have set it up very well so any engineers coming
+          after will find it easy to understand and work with.
+        </p>
         <p>
           <sub>Front End | React:latest - Redux - Chakra UI - Queries - Websockets</sub>
         </p>
-        <a href="https://www.eventhub.com.au/" target="_blank">
+        --------------------------------
+
+        <a href="https://www.eventhub.com.au/">
           <h3>Eventhub</h3>
         </a>
         <h5>2018 - 2020</h5>
@@ -86,6 +117,54 @@
         <p>
           <sub>Back End | Node 12.x - Bookshelf/Knex - PostgresQL</sub>
         </p>
+      </section>
+      <section id="projects">
+        <h2>Mini-Projects</h2>
+        <h3>
+          Chamo | <a href="https://www.npmjs.com/package/chamo">npm</a> |
+          <a href="https://github.com/sjlevens/chamo">GitHub</a>
+        </h3>
+        <p>
+          A simple functional programming library from basics. Derived completely from Reduce which
+          only uses the for( of ) pattern for lists and for( in ) for objects. Everything else is in
+          terms of reduce and basic arthmetic operators.
+        </p>
+        <p>--------------------------------</p>
+
+        <h3>Table Robot | <a href="https://robot.slevens.me/">https://robot.slevens.me/</a></h3>
+        <p>
+          The classic table robot implementation in the browser. Uses React and CSS for all the
+          animation.
+        </p>
+        <details>
+          <summary>Guaranteed to waste 45 seconds of your time :D</summary>
+          <iframe
+            width="1000px"
+            height="600px"
+            src="https://robot.slevens.me/"
+            title="Table Robot"
+          ></iframe>
+        </details>
+
+        <p>--------------------------------</p>
+
+        <h3>
+          GraphQL Tech Demo |
+          <a href="https://graphql-example.slevens.me/">https://graphql-example.slevens.me/</a>
+        </h3>
+        <p>A little tech demo I did for a GraphQL setup</p>
+        <p>--------------------------------</p>
+
+        <h3>Articles</h3>
+        <ul>
+          <li>
+            Setting up an inline video recording component with React and Hooks |
+            <a
+              href="https://medium.com/@sjlevens/setting-up-an-inline-video-recording-component-with-react-and-hooks-273db8b8bac"
+              >Medium Article</a
+            >
+          </li>
+        </ul>
       </section>
     </main>
     
