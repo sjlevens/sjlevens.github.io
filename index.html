@@ -93,8 +93,11 @@ footer { border-top: 1px solid var(--line-strong); padding-block: 48px 64px; pos
 
 @media (max-width: 760px) {
   .card.feature, .about { grid-template-columns: 1fr; }
-    section.band { padding-block: 64px; }
+  section.band { padding-block: 64px; }
   nav { font-size: 13px; gap: .25rem 1rem; }
+  /* The asteroid sits behind the hero text on phones, so give the text a dark halo */
+  .hero .eyebrow, .hero h1, .lede, .telemetry { text-shadow: 0 1px 2px rgba(7, 10, 14, .95), 0 0 14px rgba(7, 10, 14, .9), 0 0 28px rgba(7, 10, 14, .7); }
+  .lede { color: var(--text); }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .card { transition: none; } }
 </style>
