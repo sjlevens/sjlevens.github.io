@@ -24,8 +24,9 @@ h1 { font-size: 27pt; line-height: 1; letter-spacing: -.035em; font-weight: 500;
 .summary { margin: 12px 0 4px; font-size: 10pt; color: var(--text); }
 .summary p { margin: 0 0 4px; }
 h2 { font-family: var(--mono); font-size: 8pt; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); margin: 16px 0 8px; padding-bottom: 4px; border-bottom: 1px solid var(--line); }
-.job { margin-bottom: 11px; break-inside: avoid; }
-.job.long { break-inside: auto; }
+.job { margin-bottom: 11px; }
+.job-head, .intro, h4, h2 { break-after: avoid; }
+li, .skills dd, .small p { break-inside: avoid; }
 .job-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
 h3 { font-size: 11.5pt; font-weight: 600; margin: 0; letter-spacing: -.01em; }
 h3 span { font-weight: 400; color: var(--muted); }
@@ -36,14 +37,10 @@ h4 span { font-weight: 400; color: var(--faint); font-family: var(--mono); font-
 ul { margin: 2px 0 0; padding-left: 14px; }
 li { margin: 1.5px 0; padding-left: 2px; }
 li::marker { color: var(--accent); }
-.stats { display: flex; gap: 22px; margin: 6px 0 4px; }
-.stats div { display: flex; flex-direction: column; }
-.stats b { font-size: 14pt; font-weight: 500; line-height: 1.1; }
-.stats span { font-family: var(--mono); font-size: 7pt; color: var(--faint); }
+li b { font-weight: 600; }
 .skills { display: grid; grid-template-columns: 128px 1fr; gap: 3px 12px; margin: 0; }
 .skills dt { font-family: var(--mono); font-size: 7.8pt; color: var(--muted); padding-top: 1.5px; }
 .skills dd { margin: 0; }
-.two { display: grid; grid-template-columns: 1fr 1fr; gap: 0 22px; }
 .small p { margin: 0 0 5px; }
 .small p b { font-weight: 600; }
 .muted { color: var(--muted); }
@@ -53,7 +50,6 @@ code { font-family: var(--mono); font-size: 8.4pt; }
   html { background: #fff; }
   .toolbar { display: none; }
   .page { margin: 0; padding: 0 16mm; box-shadow: none; width: auto; min-height: 0; }
-  .break { break-before: page; }
 }
 @media screen and (max-width: 820px) {
   .toolbar, .page { width: auto; margin: 0; }
@@ -61,7 +57,6 @@ code { font-family: var(--mono); font-size: 8.4pt; }
   .page { padding: 20px 16px; box-shadow: none; }
   header, .job-head { flex-direction: column; align-items: start; gap: 4px; }
   .contact { text-align: left; }
-  .two { grid-template-columns: 1fr; }
   .skills { grid-template-columns: 1fr; }
 }
 </style>
@@ -85,68 +80,68 @@ code { font-family: var(--mono); font-size: 8.4pt; }
   <div class="summary">
     <p>Full-stack TypeScript engineer and tech lead across startups, Atlassian and Relume.</p>
     <p>I build generative AI products and the tooling that lets AI agents work inside real systems. I led Relume Studio, an AI image generation product, from prototype to launch. I also wrote the MCP server that lets Relume's AI build with its component library.</p>
-    <p>I take new product areas to production and harden them with tests, metrics and explicit failure handling.</p>
+    <p>I define the architecture for new product areas, take them to production and harden them with tests, metrics and explicit failure handling.</p>
   </div>
 
   <h2>Experience</h2>
 
   <section class="job long">
     <div class="job-head"><h3>Senior Software Engineer <span>· Relume</span></h3><span class="when">Jan 2026 – present</span></div>
-    <p class="intro">Tech lead for two product areas on Relume's Nova platform: Relume Studio, a generative AI image product, and the component Builder that produces Relume's component library and every published site. Merged 691 pull requests and reviewed 275 in the first ten months.</p>
+    <p class="intro">Tech lead for two product areas on Relume's Nova platform: Relume Studio, a generative AI image product, and the component Builder that produces Relume's component library and every published site.</p>
 
     <h4>Relume Studio: generative AI image product <span>tech lead · Sep 2026 –</span></h4>
     <ul>
-      <li>Rebuilt Studio from a prototype into a production application in three weeks, from the first foundation pull request to internal release, and led it through public launch. Authored 74% of Studio's pull requests.</li>
-      <li>Led delivery of the core generative features: Styles generated from reference images, People and Scenes for consistent characters and environments across generations, image refinement, and a Library synced into the site editor.</li>
-      <li>Built the generation pipeline on BullMQ with fallback across OpenAI and Google image models, rate-limit retries, per-user and fleet-wide queue limits, and hand-back of in-flight jobs on deploy.</li>
-      <li>Metered every generation per token against per-plan spend caps. Instrumented the product before launch with Prometheus and Grafana timings, per-job cost in PostHog, Sentry, failure-rate alerts and a kill switch for all paid work.</li>
-      <li>Designed AI image upscaling on a Cloudflare Worker at $0.0005 per image, against $0.004 to $0.17 for the alternatives evaluated. Mapped the model's undocumented input limits through three spikes. The editor team has adopted the Worker.</li>
-      <li>Ran a 10-area launch readiness review that raised 51 issues; 39 were fixed and 11 partly fixed within one day, and the go/no-go review returned GO. Changed AI quality and safety checks from blocking errors to recorded warnings after false positives failed paid generations.</li>
+      <li><b>Took Studio from prototype to production in three weeks</b>, defining its architecture as an independently deployed app on Nova's shared auth, workspaces and analytics, and led it through public launch.</li>
+      <li><b>Shipped the full generative feature set for launch:</b> reference-image Styles, consistent People and Scenes, image refinement and a Library synced into the site editor.</li>
+      <li><b>Kept generations flowing through provider outages and rate limits</b> by architecting a BullMQ pipeline with fallback across OpenAI and Google models, retries, fair queueing and hand-back of in-flight jobs on deploy.</li>
+      <li><b>Made every generation's cost visible and capped before launch:</b> per-token metering against plan spend caps, per-job cost in PostHog, Grafana timings, failure-rate alerts and a kill switch.</li>
+      <li><b>Cut AI upscaling cost by 87–99%</b> against every alternative evaluated by designing it on a Cloudflare Worker, now adopted by the editor team.</li>
+      <li><b>Cleared Studio for launch in a single day.</b> Ran a 10-area readiness review, resolved 50 of its 51 findings overnight and took the product to a GO decision.</li>
     </ul>
 
     <h4>AI agents and the component Builder <span>tech lead · Feb – Sep 2026</span></h4>
     <ul>
-      <li>Wrote the Builder MCP server, which lets Relume's internal AI and designers using Claude Code operate the component library builder directly. It replaced the Builder's in-app chat. Hardened it for production with secure pairing, reconnection backoff and port-conflict recovery.</li>
-      <li>Built a <code>qa_component</code> check that validates a component against the schema, the editor and published output and returns a machine-readable result, and added selection criteria that agents use to choose components.</li>
-      <li>Designed the component model: variants, slots, sibling component families, conditional properties and per-instance overrides. Led the schema rework across 270 files, with all 1,989 tests passing.</li>
-      <li>Added Git-style branching to the component library, and concurrent-edit protection with three-way merges so designers and AI agents can edit simultaneously without overwriting each other.</li>
-      <li>Moved published sites from React hydration (230 KB) to server-rendered HTML with a 10 KB vanilla runtime, and unified the render pipelines, removing the legacy HTML generator.</li>
-      <li>Halved backend idle memory after a heap-snapshot investigation, eliminating out-of-memory crashes in preview pods without raising limits. Introduced Sentry error tracking and OpenTelemetry distributed tracing.</li>
+      <li><b>Gave Relume's AI direct control of the component library builder</b> by writing the Builder MCP server, which replaced the in-app chat, and hardened it with secure pairing and reconnection recovery.</li>
+      <li><b>Let AI agents check their own work</b> with a <code>qa_component</code> check across schema, editor and published output, plus selection criteria for choosing components.</li>
+      <li><b>Defined the component architecture behind every Relume site</b>, from variants and slots to per-instance overrides, and led its schema rework across 270 files with all 1,989 tests passing.</li>
+      <li><b>Let designers and AI agents edit one library at once</b> with Git-style branching and three-way merges.</li>
+      <li><b>Cut published-site JavaScript by 96%</b> by leading the move from React hydration to server-rendered HTML with a lightweight vanilla runtime, and unified three render pipelines into one.</li>
+      <li><b>Halved backend idle memory and ended out-of-memory crashes</b> without raising limits, and introduced Sentry and OpenTelemetry tracing.</li>
     </ul>
   </section>
 
   <section class="job">
     <div class="job-head"><h3>Software Engineer <span>· Atlassian, Commerce</span></h3><span class="when">Jan 2022 – 2025</span></div>
+    <p class="intro">Engineer on the billing experience used by every Atlassian Cloud customer.</p>
     <ul>
-      <li>Built and maintained the billing console UI and its backend-for-frontend with React, Node.js and GraphQL.</li>
-      <li>Led the migration of the billing experience into Jira and Confluence using a micro-frontend architecture.</li>
-      <li>Upgraded the codebase from React 17 to 18, resolving compatibility issues and optimising Suspense usage.</li>
-      <li>Rebuilt the ESLint and pre-commit pipeline to reduce noise and CI failures.</li>
-      <li>Contributed to architecture decisions for the billing platform to enable code sharing across the Commerce department.</li>
+      <li><b>Brought billing into Jira and Confluence</b> by leading its migration to a micro-frontend architecture embedded in each product.</li>
+      <li><b>Turned billing changes into measured decisions.</b> Designed experiments on billing flows and ran the data science and analytics myself, from success metrics to analysis and the ship decision.</li>
+      <li><b>Shaped the billing platform's architecture for reuse across the Commerce department</b>, so teams could share code instead of rebuilding it.</li>
+      <li><b>Owned the billing console end to end</b> in React, Node.js and GraphQL, including the React 18 upgrade and a rebuilt lint pipeline that cut CI noise.</li>
     </ul>
   </section>
 
   <section class="job">
     <div class="job-head"><h3>Senior Software Engineer <span>· FrankieOne</span></h3><span class="when">Sep 2021 – Jan 2022</span></div>
     <ul>
-      <li>Rewrote the identity verification flow in React, replacing a legacy Vue implementation, to support client customisation and mobile use.</li>
-      <li>Designed a JavaScript SDK for embedding KYC and AML verification into client web and mobile apps.</li>
+      <li><b>Opened identity verification to client customisation and mobile</b> by rewriting the flow in React, replacing a legacy Vue implementation.</li>
+      <li><b>Let clients embed KYC and AML checks in their own products</b> by designing a JavaScript SDK for web and mobile apps.</li>
     </ul>
   </section>
 
   <section class="job">
     <div class="job-head"><h3>Systems Architect and Full Stack Developer <span>· GADA Technology</span></h3><span class="when">Jun 2020 – Jan 2022</span></div>
     <ul>
-      <li>Promoted from a front end contract role to systems architect.</li>
-      <li>Rebuilt the React front end for rapid delivery on large B2B integrations, with client-specific feature toggles.</li>
-      <li>Introduced CI/CD and automated testing with GitHub Actions and Cypress, and established accessibility standards.</li>
+      <li><b>Promoted from front end contractor to systems architect</b> within the first month.</li>
+      <li><b>Sped up delivery on large B2B integrations</b> by architecting a React front end around client-specific feature toggles.</li>
+      <li><b>Introduced CI/CD and automated testing</b> with GitHub Actions and Cypress, and set the team's accessibility standards.</li>
     </ul>
   </section>
 
   <section class="job">
     <div class="job-head"><h3>Front End Developer <span>· Eventhub</span></h3><span class="when">Jan 2019 – Jun 2020</span></div>
     <ul>
-      <li>Built React components and ticket purchasing flows on a greenfield product, and improved accessibility and responsiveness.</li>
+      <li><b>Built the ticket purchasing flow</b> and core React components for a greenfield product, improving accessibility and responsiveness.</li>
     </ul>
   </section>
 
@@ -159,22 +154,23 @@ code { font-family: var(--mono); font-size: 8.4pt; }
   <dl class="skills">
     <dt>Generative AI</dt><dd>OpenAI and Google image models, Vercel AI SDK, Mastra, Model Context Protocol servers, agent validation checks</dd>
     <dt>AI-native workflow</dt><dd>Claude Code and Codex agents in parallel git worktrees, plan-first delivery, agent-run code reviews, agent guidance files</dd>
-    <dt>Frontend</dt><dd>TypeScript, React, MobX, TanStack Query, React Router, micro-frontends, accessibility</dd>
+    <dt>Architecture</dt><dd>Micro-frontends, backend-for-frontend, queue-based job pipelines, server-rendered publishing, written design docs</dd>
+    <dt>Frontend</dt><dd>TypeScript, React, MobX, TanStack Query, React Router, accessibility</dd>
     <dt>Backend</dt><dd>Node, Hono, GraphQL, Prisma, PostgreSQL, BullMQ, Redis</dd>
     <dt>Edge and cloud</dt><dd>Cloudflare Workers, Pages, Images and R2, AWS, Kubernetes, OpenTofu, Docker</dd>
-    <dt>Quality and ops</dt><dd>Vitest, Jest, Playwright, Cypress, Sentry, OpenTelemetry, Prometheus, Grafana, PostHog, Buildkite, GitHub Actions</dd>
+    <dt>Data and quality</dt><dd>Experiment design and analysis, PostHog, SQL, Vitest, Jest, Playwright, Sentry, OpenTelemetry, Prometheus, Grafana</dd>
   </dl>
 
   <h2>Side projects</h2>
   <dl class="skills">
-    <dt>Mobile games in Unity</dt><dd>The Patient Machine, Dicey Defense and Rogue Party, built on pure C# cores for iOS and Android.</dd>
+    <dt>Unity games</dt><dd>The Patient Machine, Dicey Defense and Rogue Party: mobile games on pure C# cores for iOS and Android.</dd>
     <dt>agent-dispatch</dt><dd>local coordinators for Claude and Codex workers, with a terminal-style control console.</dd>
   </dl>
 
   <div class="small">
     <h2>Education and community</h2>
-    <p><b>University of Sydney</b> <span class="muted">· 2016</span><br>Bachelor of Engineering (Mechatronics) and Bachelor of Commerce (International Business)</p>
-    <p><b>Career mentor, headspace</b> <span class="muted">· 2023 – 2024</span><br>Volunteer career mentor for young people.</p>
+    <p><b>University of Sydney</b> · BE (Mechatronics) and BCom (International Business) <span class="muted">· 2016</span></p>
+    <p><b>Career mentor, headspace</b> · volunteer mentor for young people <span class="muted">· 2023 – 2024</span></p>
   </div>
 </main>
 </body>
