@@ -39,6 +39,8 @@ li { margin: 1.5px 0; padding-left: 2px; }
 li::marker { color: var(--accent); }
 li b { font-weight: 600; }
 .skills { display: grid; grid-template-columns: 128px 1fr; gap: 3px 12px; margin: 0; }
+.skills.wide { grid-template-columns: 158px 1fr; }
+.skills.wide dt { white-space: nowrap; }
 .skills dt { font-family: var(--mono); font-size: 7.8pt; color: var(--muted); padding-top: 1.5px; }
 .skills dd { margin: 0; }
 .small p { margin: 0 0 5px; }
@@ -78,7 +80,7 @@ code { font-family: var(--mono); font-size: 8.4pt; }
   </header>
 
   <div class="summary">
-    <p>Full-stack TypeScript engineer and tech lead across startups, Atlassian and Relume.</p>
+    <p>Full-stack TypeScript/Node and Python engineer and tech lead across startups, Atlassian and Relume.</p>
     <p>I build generative AI products and the tooling that lets AI agents work inside real systems. I led Relume Studio, an AI image generation product, from prototype to launch. I also wrote the MCP server that lets Relume's AI build with its component library.</p>
     <p>I define the architecture for new product areas, take them to production and harden them with tests, metrics and explicit failure handling.</p>
   </div>
@@ -93,7 +95,9 @@ code { font-family: var(--mono); font-size: 8.4pt; }
     <ul>
       <li><b>Took Studio from prototype to production in three weeks</b>, defining its architecture as an independently deployed app on Nova's shared auth, workspaces and analytics, and led it through public launch.</li>
       <li><b>Shipped the full generative feature set for launch:</b> reference-image Styles, consistent People and Scenes, image refinement and a Library synced into the site editor.</li>
-      <li><b>Kept generations flowing through provider outages and rate limits</b> by architecting a BullMQ pipeline with fallback across OpenAI and Google models, retries, fair queueing and hand-back of in-flight jobs on deploy.</li>
+      <li><b>Kept generations flowing through provider outages and rate limits</b> by architecting a BullMQ pipeline with OpenAI and Google model fallback, retries, fair queueing and hand-back of in-flight jobs on deploy.</li>
+      <li><b>Chose AI providers on evidence from job data and analytics</b> by designing and co-writing a Python and FastAPI backend, managing one engineer, that coordinated agents outside Mastra with LangGraph.</li>
+      <li><b>Tied system prompt experiments to measured generation quality</b> by analysing obfuscated job data in Python with in-house machine learning and LLMs run directly on Amazon Bedrock.</li>
       <li><b>Made every generation's cost visible and capped before launch:</b> per-token metering against plan spend caps, per-job cost in PostHog, Grafana timings, failure-rate alerts and a kill switch.</li>
       <li><b>Cut AI upscaling cost by 87–99%</b> against every alternative evaluated by designing it on a Cloudflare Worker, now adopted by the editor team.</li>
       <li><b>Cleared Studio for launch in a single day.</b> Ran a 10-area readiness review, resolved 50 of its 51 findings overnight and took the product to a GO decision.</li>
@@ -114,7 +118,7 @@ code { font-family: var(--mono); font-size: 8.4pt; }
     <div class="job-head"><h3>Software Engineer <span>· Atlassian, Commerce</span></h3><span class="when">Jan 2022 – 2025</span></div>
     <p class="intro">Engineer on the billing experience used by every Atlassian Cloud customer.</p>
     <ul>
-      <li><b>Brought billing into Jira and Confluence</b> by leading its migration to a micro-frontend architecture embedded in each product.</li>
+      <li><b>Brought billing into Jira and Confluence</b> by leading its migration to embedded micro-frontends.</li>
       <li><b>Turned billing changes into measured decisions.</b> Designed experiments on billing flows and ran the data science and analytics myself, from success metrics to analysis and the ship decision.</li>
       <li><b>Shaped the billing platform's architecture for reuse across the Commerce department</b>, so teams could share code instead of rebuilding it.</li>
       <li><b>Owned the billing console end to end</b> in React, Node.js and GraphQL, including the React 18 upgrade and a rebuilt lint pipeline that cut CI noise.</li>
@@ -152,11 +156,11 @@ code { font-family: var(--mono); font-size: 8.4pt; }
 
   <h2>Skills</h2>
   <dl class="skills">
-    <dt>Generative AI</dt><dd>OpenAI and Google image models, Vercel AI SDK, Mastra, Model Context Protocol servers, agent validation checks</dd>
+    <dt>Generative AI</dt><dd>OpenAI and Google image models, Amazon Bedrock, Vercel AI SDK, Mastra, LangGraph, Model Context Protocol servers, agent validation checks</dd>
     <dt>AI-native workflow</dt><dd>Claude Code and Codex agents in parallel git worktrees, plan-first delivery, agent-run code reviews, agent guidance files</dd>
     <dt>Architecture</dt><dd>Micro-frontends, backend-for-frontend, queue-based job pipelines, server-rendered publishing, written design docs</dd>
     <dt>Frontend</dt><dd>TypeScript, React, MobX, TanStack Query, React Router, accessibility</dd>
-    <dt>Backend</dt><dd>Node, Hono, GraphQL, Prisma, PostgreSQL, BullMQ, Redis</dd>
+    <dt>Backend</dt><dd>Node, Python, FastAPI, Pydantic, Hono, GraphQL, Prisma, PostgreSQL, BullMQ, Redis</dd>
     <dt>Edge and cloud</dt><dd>Cloudflare Workers, Pages, Images and R2, AWS, Kubernetes, OpenTofu, Docker</dd>
     <dt>Data and quality</dt><dd>Experiment design and analysis, PostHog, SQL, Vitest, Jest, Playwright, Sentry, OpenTelemetry, Prometheus, Grafana</dd>
   </dl>
@@ -164,7 +168,7 @@ code { font-family: var(--mono); font-size: 8.4pt; }
   <h2>Side projects</h2>
   <dl class="skills">
     <dt>Unity games</dt><dd>The Patient Machine, Dicey Defense and Rogue Party: mobile games on pure C# cores for iOS and Android.</dd>
-    <dt>agent-dispatch</dt><dd>local coordinators for Claude and Codex workers, with a terminal-style control console.</dd>
+    <dt>agent-dispatch</dt><dd>local coordinators for Claude and Codex workers, with a terminal-style console.</dd>
   </dl>
 
   <div class="small">
