@@ -3,19 +3,47 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Dicey Defense, a dice-driven tower defense game for Android and iOS. Privacy and player support.">
-  <title>Dicey Defense — Privacy and support</title>
+  <title>Dicey Defense | Dice tower defense for Android</title>
+  <meta name="description" content="Merge elemental dice, play poker hands and decide when to bank your haul in Dicey Defense, a tower defense game for Android.">
+  <link rel="icon" href="media/icon.webp" type="image/webp">
   <link rel="stylesheet" href="site.css">
+  <link rel="stylesheet" href="landing.css">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
-  <header><div class="wrap top"><a class="brand" href="./">Dicey Defense</a><nav aria-label="Main"><a href="privacy/">Privacy</a><a href="terms/">Terms</a><a href="support/">Support</a></nav></div></header>
-  <main class="wrap" id="main">
-    <p class="eyebrow">Roll. Merge. Defend.</p>
-    <h1>A little luck.<br>A lot to defend.</h1>
-    <p class="intro">Dicey Defense is a dice-driven tower defense game in development for Android and iOS. Build your collection, combine elemental dice and defend the arena through escalating waves.</p>
-    <section><h2>Your game. Your choices.</h2><p>Learn about local game saves, optional rewarded ads and privacy controls in our <a href="privacy/">privacy policy</a>.</p><p>Purchases, ads and your rights as a player are covered in the <a href="terms/">terms of service</a>.</p><p>For game help, local-data deletion information and contact details, see the <a href="support/">support page</a>.</p></section>
+  <header>
+    <div class="wrap top">
+      <a class="brand" href="./"><img src="media/icon.webp" width="40" height="40" alt="">Dicey Defense</a>
+      <nav aria-label="Player information"><a href="support/">Support</a><a href="privacy/">Privacy</a></nav>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero" aria-labelledby="hook">
+      <div class="wrap hero-grid">
+        <div class="pitch">
+          <p class="eyebrow">Dice tower defense</p>
+          <h1 id="hook">Your dice are <span>the towers.</span></h1>
+          <p class="intro">Roll a defense, merge your dice and unleash poker hands on the next wave. Beat a boss, then bank your haul or risk it on another ten waves.</p>
+          <a class="install" href="https://play.google.com/store/apps/details?id=com.slevens.diceydefense">Get it on Google Play <span aria-hidden="true">↗</span></a>
+          <p class="fine">Free on Android · Optional ads and purchases</p>
+        </div>
+        <img class="hero-art" src="media/arena-art.webp" width="619" height="500" alt="" fetchpriority="high">
+      </div>
+    </section>
+    <section class="wrap gameplay" aria-labelledby="gameplay-title">
+      <h2 id="gameplay-title">Inside the arena</h2>
+      <div class="shots">
+        <figure>
+          <img src="media/boss-battle.webp" width="720" height="560" loading="lazy" alt="Lightning jumps between the dice and the Shield boss as enemies close on the barrier.">
+          <figcaption><h3>Mix your elements</h3><p>Drag compatible dice together to evolve them. Pair Electric with Air to make Storm and reach farther with chain lightning.</p></figcaption>
+        </figure>
+        <figure>
+          <img src="media/full-house.webp" width="720" height="560" loading="lazy" alt="A Full House sends a bright ring across the arena while dice fire at nearby enemies.">
+          <figcaption><h3>Play your full house</h3><p>Watch the faces as your dice fight. Three of a kind plus a pair gives you a full house that hits every enemy on the board.</p></figcaption>
+        </figure>
+      </div>
+    </section>
   </main>
-  <footer><div class="wrap">Dicey Defense · Samuel Levens</div></footer>
+  <footer><div class="wrap foot"><span>Dicey Defense · Samuel Levens</span><nav aria-label="Footer"><a href="support/">Support</a><a href="privacy/">Privacy policy</a><a href="terms/">Terms</a></nav></div></footer>
 </body>
 </html>
