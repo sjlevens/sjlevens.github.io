@@ -65,6 +65,11 @@ h2 { font-size: clamp(28px, 4vw, 40px); line-height: 1.1; letter-spacing: -.03em
 .card h3 { color: #fff; font-size: 22px; font-weight: 500; letter-spacing: -.02em; margin: 0; }
 .card p { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.6; }
 .card .links { margin-top: auto; padding-top: .6rem; display: flex; flex-wrap: wrap; gap: 1rem; font-size: 14px; }
+.card .stores { margin-top: auto; padding-top: .6rem; display: flex; flex-wrap: wrap; gap: 8px; }
+.card .stores + .links { margin-top: 0; padding-top: .3rem; }
+.store { display: inline-flex; align-items: center; padding: .4rem .85rem; border: 1px solid var(--line-strong); border-radius: 6px; color: var(--text); text-decoration: none; font-size: 14px; background: rgba(7, 10, 14, .35); }
+a.store:hover { border-color: var(--sec, var(--accent)); color: #fff; }
+.store.soon { color: var(--faint); border-style: dashed; }
 .card.feature { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 28px; align-items: center; }
 .card.feature .art { aspect-ratio: 16 / 10; border-radius: 8px; border: 1px solid var(--line-strong); background: radial-gradient(circle at 70% 35%, #23465a 0, #0e1a24 50%, #070a0e 100%); position: relative; overflow: hidden; }
 .art .rock { position: absolute; left: 48%; top: 30%; width: 34%; aspect-ratio: 1; border-radius: 46% 54% 42% 58% / 52% 44% 56% 48%; background: #6b7b8c; box-shadow: inset -16px -12px 0 #3a4652, inset 6px 6px 0 #8a9aab; }
@@ -141,7 +146,7 @@ footer { border-top: 1px solid var(--line-strong); padding-block: 48px 64px; pos
     <div class="wrap">
       <div class="band-head">
         <div><div class="eyebrow">01 · Games</div><h2>Small games, built properly</h2></div>
-        <p>Unity, pure C# cores, no accounts and no tracking of my own. For Android and iOS.</p>
+        <p>Unity, pure C# cores, no accounts and no tracking of my own. For Android and iOS, and two are out now.</p>
       </div>
       <div class="grid">
         <article class="card feature">
@@ -155,15 +160,23 @@ footer { border-top: 1px solid var(--line-strong); padding-block: 48px 64px; pos
           </div>
         </article>
         <article class="card">
-          <div class="tag"><span>Unity · tower defense</span><span class="status">In development</span></div>
+          <div class="tag"><span>Unity · tower defense</span><span class="status live">Out on Android</span></div>
           <h3>Dicey Defense</h3>
           <p>Roll, merge, defend. Combine elemental dice and hold the arena through escalating waves.</p>
+          <div class="stores">
+            <a class="store" href="https://play.google.com/store/apps/details?id=com.slevens.diceydefense" aria-label="Dicey Defense on Google Play">Google Play ↗</a>
+            <span class="store soon">App Store · soon</span>
+          </div>
           <div class="links"><a href="/dicey-defense/">Game page</a><a href="/dicey-defense/support/">Support</a></div>
         </article>
         <article class="card">
-          <div class="tag"><span>Unity · dice adventure</span><span class="status">iOS · Android</span></div>
+          <div class="tag"><span>Unity · dice adventure</span><span class="status live">iOS · Android</span></div>
           <h3>Rogue Party</h3>
           <p>A dice adventure for iPhone, iPad and Android. Progress stays on your device, with no account or sign-in.</p>
+          <div class="stores">
+            <a class="store" href="https://apps.apple.com/us/app/rogue-party/id6819185790" aria-label="Rogue Party on the App Store">App Store ↗</a>
+            <a class="store" href="https://play.google.com/store/apps/details?id=com.slevens.rogueparty" aria-label="Rogue Party on Google Play">Google Play ↗</a>
+          </div>
           <div class="links"><a href="/rogue-party/">Support</a></div>
         </article>
       </div>
